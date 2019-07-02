@@ -1,0 +1,19 @@
+{
+  "name": "vg.tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "node src/main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ntklgka",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "moment-duration-format": "^2.3.2",
+    "moment-timezone": "^0.5.25",
+    "pg": "^7.11.0",
+    "request": "^2.88.0"
+  }
+}
