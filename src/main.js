@@ -1,8 +1,6 @@
 /*
 can't get unique IPs from querying catalogue, so I use catalogue 
 to get thread number and query the thread instead
-
-Current date format: DD/MM/YY HH:mm:ss
 */
 
 /*TO DO:
@@ -53,7 +51,7 @@ request('https://a.4cdn.org/vg/catalog.json', function (error, response, body) {
 
 			let thread_url = 'https://a.4cdn.org/vg/thread/' + thread_no + '.json'; //creates thread url for request
 
-			//works!! 10 seconds between requests
+			//10 seconds between requests
 			setTimeout(function() {
 				request(thread_url, function (error, response, body) {
 					let threadJSON = JSON.parse(body); // gets current thread
@@ -85,6 +83,7 @@ request('https://a.4cdn.org/vg/catalog.json', function (error, response, body) {
 
 						let real_dur = "";
 
+						//if thread has less than an hour add 00 to hours
 						if(dur.length == 5){
 							real_dur = "00:" + dur;
 						}
@@ -93,7 +92,6 @@ request('https://a.4cdn.org/vg/catalog.json', function (error, response, body) {
 						}
 
 						//calculates posts per hour
-						//theres a bug where if hour is close to 0 ppHR is infnity
 						let hours_dur = d.format("hh");
 						let pphr = Math.round(replies/hours_dur * 10) / 10;
 
