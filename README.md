@@ -11,7 +11,7 @@ What data?
 * unique ips
 * average post per unique IP
 * duration
-* average post per hour
+* average posts per hour
 * creation time
 * snapshot time, time the thread was queried at
 * catalogue time, time the catalogue was queried at
