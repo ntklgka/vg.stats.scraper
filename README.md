@@ -5,10 +5,10 @@ Gets information from the 4chan API for /vg/ and writes to a postgreSQL database
 What data?
 
 * thread title
-* thread_identifier, i.e /tf2g/
-* thread_number
+* thread identifier, i.e /tf2g/
+* thread number
 * replies
-* unique_ips
+* unique ips
 * average post per unique IP
 * duration
 * average post per hour
