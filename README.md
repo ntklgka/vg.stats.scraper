@@ -9,7 +9,7 @@ What data?
 * thread number
 * replies
 * unique ips
-* average post per unique IP
+* average posts per unique IP
 * duration
 * average posts per hour
 * creation time
