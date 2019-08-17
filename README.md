@@ -1,4 +1,4 @@
-# vg.tracker_scraper
+# vg.stats.scraper
 
 Gets information from the 4chan API for /vg/ and writes to a postgreSQL database. Made with the intention of creating a frontend to visualize data about /vg/ generals.
 
