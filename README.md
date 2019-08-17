@@ -1,4 +1,5 @@
 for sugestions/ideas: vgstats@protonmail.ch
+
 or just use the "Issues" tab
 
 # vgstats.xyz
