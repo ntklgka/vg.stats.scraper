@@ -3,7 +3,7 @@ ntklgka 2019
 https://github.com/ntklgka 
 */
 
-require('dotenv').config()
+require('dotenv').config();
 const request = require('request');
 var moment = require('moment-timezone');
 var momentDurationFormatSetup = require("moment-duration-format");
@@ -120,8 +120,20 @@ function doThing() {
 								} else {
 									threadIdentifier = title;
 								}
+								
+								
+								//turn into ISO date format
+								let chip = moment(OPtime, "DD/MM/YY HH:mm:ss");
+								let ISOPdate = chip.format("YYYY-MM-DD HH:mm:ss");
+								
+								let chip1 = moment(ESTEDTcurrTime, "DD/MM/YY HH:mm:ss");
+								let ISOESTcurrTime = chip1.format("YYYY-MM-DD HH:mm:ss");
+								
+								let chip2 = moment(catal_date, "DD/MM/YY HH:mm:ss");
+								let ISOcatal_date = chip2.format("YYYY-MM-DD HH:mm:ss");
+								
 								infoArray[thread_ctr] = [title, threadIdentifier, thread_no, replies,
-								unique_ips, ppIP, real_dur, pphr, OPtime, ESTEDTcurrTime, catal_date];
+								unique_ips, ppIP, real_dur, pphr, ISOPdate, ISOESTcurrTime, ISOcatal_date];
 								
 								thread_ctr++;
 								
@@ -136,7 +148,9 @@ function doThing() {
 								console.log("Duration: " + real_dur);
 								console.log("Average posts per hour: " + pphr);
 								console.log("OP date: " + OPtime);
+								console.log("ISO OP date: " + ISOPdate);
 								console.log("Snapshot at: " + ESTEDTcurrTime);
+								console.log(ISOPdate + " " + ISOESTcurrTime + " " + ISOcatal_date);
 								console.log("Threads: " + thread_ctr + " Deleted: " + error_ctr + " Archived: " + archive_ctr);
 								console.log("--------------------------------------");
 							}		
