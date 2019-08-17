@@ -1,6 +1,13 @@
+# vgstats.xyz
+
+This project is divided into three repos:
+* vg.stats.scraper: this one
+* vg.stats.API: https://github.com/ntklgka/vg.stats.API
+* vg.stats.website: https://github.com/ntklgka/vg.stats.website
+
 # vg.stats.scraper
 
-Gets information from the 4chan API for /vg/ and writes to a postgreSQL database. Made with the intention of creating a frontend to visualize data about /vg/ generals.
+Gets information from the 4chan API and writes to a postgreSQL database. Made using NodeJS.
 
 What data?
 
