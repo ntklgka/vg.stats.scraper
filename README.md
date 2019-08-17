@@ -14,7 +14,7 @@ This project is divided into three repos:
 * a "Records" tab where we can see which threads achieve the highest/lowest records
 * graphs to visualize each thread's data over time
 
-# vg.stats.scraper
+# vg.stats.tracker
 
 Gets information from the 4chan API and writes to a postgreSQL database. Made using NodeJS.
 
