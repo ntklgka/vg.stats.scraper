@@ -1,6 +1,22 @@
-# vg.stats.scraper
+For sugestions/ideas: vgstats@protonmail.ch
 
-Gets information from the 4chan API for /vg/ and writes to a postgreSQL database. Made with the intention of creating a frontend to visualize data about /vg/ generals.
+or just use the "Issues" tab
+
+# vgstats.xyz
+
+This project is divided into three repos:
+* vg.stats.tracker: this one
+* vg.stats.API: https://github.com/ntklgka/vg.stats.API
+* vg.stats.website: https://github.com/ntklgka/vg.stats.website
+
+# Coming Soon (well some day, probably)
+* an archive
+* a "Records" tab where we can see which threads achieve the highest/lowest records
+* graphs to visualize each thread's data over time
+
+# vg.stats.tracker
+
+Gets information from the 4chan API and writes to a postgreSQL database. Made using NodeJS.
 
 What data?
 
