@@ -1,3 +1,6 @@
+for sugestions/ideas: vgstats@protonmail.ch
+or just use the "Issues" tab
+
 # vgstats.xyz
 
 This project is divided into three repos:
