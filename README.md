@@ -5,7 +5,7 @@ or just use the "Issues" tab
 # vgstats.xyz
 
 This project is divided into three repos:
-* vg.stats.scraper: this one
+* vg.stats.tracker: this one
 * vg.stats.API: https://github.com/ntklgka/vg.stats.API
 * vg.stats.website: https://github.com/ntklgka/vg.stats.website
 
