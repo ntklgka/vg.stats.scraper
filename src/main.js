@@ -54,7 +54,7 @@ function doThing() {
 				let title = JSON.stringify(thread.sub); //get title
 				title = title.replace(/"/g,""); // removes double quotes from title
 				let thread_no = thread.no; // get thread number
-				let replies = thread.replies + 1; // get number of replies (+1 for OP)
+				//let replies = thread.replies + 1; // get number of replies (+1 for OP)
 
 				let thread_url = 'https://a.4cdn.org/vg/thread/' + thread_no + '.json'; //creates thread url for request
 
@@ -75,7 +75,8 @@ function doThing() {
 								console.log("Threads: " + thread_ctr + " Deleted: " + error_ctr + " Archived: " + archive_ctr);
 							}
 							else{
-								let unique_ips = threadJSON.posts['0'].unique_ips; //gets unique ips
+                                                                let replies = threadJSON.posts['0'].replies + 1;
+             							let unique_ips = threadJSON.posts['0'].unique_ips; //gets unique ips
 								let ppIP = Math.round(replies/unique_ips * 10) / 10; // gets posts per unique IP
 								let initialDate = threadJSON.posts['0'].now; //gets date of OP
 								//let lastPostTime = threadJSON.posts[replies].now; //gets time of last post
