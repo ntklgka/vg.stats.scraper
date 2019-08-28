@@ -21,8 +21,8 @@ const pool = new Pool(
 let sql_string = [""
 ,"INSERT INTO threads1(thread_name, thread_identifier,"
 , "thread_number, replies, unique_ips, avg_ppip, duration," 
-, "avg_pphr, creation_time, snapshot_time, catalogue_time)"
-, "VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11);"].join("");
+, "avg_pphr, creation_time, snapshot_time, catalogue_time, img_replies, img_prcnt)"
+, "VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13);"].join("");
 
 
 function doThing() {
@@ -75,8 +75,9 @@ function doThing() {
 								console.log("Threads: " + thread_ctr + " Deleted: " + error_ctr + " Archived: " + archive_ctr);
 							}
 							else{
-                                                                let replies = threadJSON.posts['0'].replies + 1;
-             							let unique_ips = threadJSON.posts['0'].unique_ips; //gets unique ips
+                                let replies = threadJSON.posts['0'].replies + 1; //+1 for OP
+								let img_replies = threadJSON.posts['0'].images + 1; //+1 for OP 
+								let unique_ips = threadJSON.posts['0'].unique_ips; //gets unique ips
 								let ppIP = Math.round(replies/unique_ips * 10) / 10; // gets posts per unique IP
 								let initialDate = threadJSON.posts['0'].now; //gets date of OP
 								//let lastPostTime = threadJSON.posts[replies].now; //gets time of last post
@@ -111,6 +112,9 @@ function doThing() {
 								let hours_dur = d.format("hh");
 								if (hours_dur == "00"){ hours_dur = 1;}
 								let pphr = Math.round(replies/hours_dur * 10) / 10;
+								
+								//calculates thread img percentage
+								let img_prcnt = Math.round(img_replies/replies * 1000) /10;
 
 								let threadIdentifier;
 								//get the thread identifier i.e. /tf2g/
@@ -134,7 +138,7 @@ function doThing() {
 								let ISOcatal_date = chip2.format("YYYY-MM-DD HH:mm:ss");
 								
 								infoArray[thread_ctr] = [title, threadIdentifier, thread_no, replies,
-								unique_ips, ppIP, real_dur, pphr, ISOPdate, ISOESTcurrTime, ISOcatal_date];
+								unique_ips, ppIP, real_dur, pphr, ISOPdate, ISOESTcurrTime, ISOcatal_date, img_replies, img_prcnt];
 								
 								thread_ctr++;
 								
@@ -144,14 +148,14 @@ function doThing() {
 								console.log("Thread Identifier: " + threadIdentifier);
 								console.log("Thread number: " + thread_no);
 								console.log("Replies: " + replies);
+								console.log("Images: " + img_replies);
+								console.log("Image %: " + img_prcnt + "%");
 								console.log("Unique IPS: " + unique_ips);
 								console.log("Average posts per IP: " + ppIP);
 								console.log("Duration: " + real_dur);
 								console.log("Average posts per hour: " + pphr);
 								console.log("OP date: " + OPtime);
-								console.log("ISO OP date: " + ISOPdate);
 								console.log("Snapshot at: " + ESTEDTcurrTime);
-								console.log(ISOPdate + " " + ISOESTcurrTime + " " + ISOcatal_date);
 								console.log("Threads: " + thread_ctr + " Deleted: " + error_ctr + " Archived: " + archive_ctr);
 								console.log("--------------------------------------");
 							}		
@@ -167,7 +171,7 @@ function doThing() {
 									}
 								client.query(sql_string, [infoArray[k][0], infoArray[k][1], infoArray[k][2], infoArray[k][3],
 								infoArray[k][4], infoArray[k][5], infoArray[k][6], infoArray[k][7], infoArray[k][8], infoArray[k][9],
-								infoArray[k][10]], function (err, result) {
+								infoArray[k][10], infoArray[k][11], infoArray[k][12]], function (err, result) {
 										done();
 
 										if (err) {
