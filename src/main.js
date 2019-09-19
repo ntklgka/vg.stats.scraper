@@ -109,9 +109,12 @@ function doThing() {
 								}
 
 								//calculates posts per hour
-								let hours_dur = d.format("hh");
-								if (hours_dur == "00"){ hours_dur = 1;}
-								let pphr = Math.round(replies/hours_dur * 10) / 10;
+								let new_dur = d.format("ss");
+								new_dur = new_dur.replace(/\,/g,'');
+								new_dur = Number(new_dur);
+								if (new_dur <= 60 * 60) new_dur = 60*60;
+								let new_pphr = (replies/new_dur) * 60 * 60;
+								new_pphr = Math.round(new_pphr * 10)/10;
 								
 								//calculates thread img percentage
 								let img_prcnt = Math.round(img_replies/replies * 1000) /10;
@@ -138,10 +141,10 @@ function doThing() {
 								let ISOcatal_date = chip2.format("YYYY-MM-DD HH:mm:ss");
 								
 								infoArray[thread_ctr] = [title, threadIdentifier, thread_no, replies,
-								unique_ips, ppIP, real_dur, pphr, ISOPdate, ISOESTcurrTime, ISOcatal_date, img_replies, img_prcnt];
+								unique_ips, ppIP, real_dur, new_pphr, ISOPdate, ISOESTcurrTime, ISOcatal_date, img_replies, img_prcnt];
 								
 								thread_ctr++;
-								
+							
 								console.log("");
 								console.log("--------------------------------------");
 								console.log(title);
@@ -153,11 +156,11 @@ function doThing() {
 								console.log("Unique IPS: " + unique_ips);
 								console.log("Average posts per IP: " + ppIP);
 								console.log("Duration: " + real_dur);
-								console.log("Average posts per hour: " + pphr);
+								console.log("Average posts per hour: " + new_pphr);
 								console.log("OP date: " + OPtime);
 								console.log("Snapshot at: " + ESTEDTcurrTime);
 								console.log("Threads: " + thread_ctr + " Deleted: " + error_ctr + " Archived: " + archive_ctr);
-								console.log("--------------------------------------");
+								console.log("--------------------------------------");							
 							}		
 						}
 						
