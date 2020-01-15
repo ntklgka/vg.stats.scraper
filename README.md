@@ -32,4 +32,5 @@ What data?
 * creation time
 * snapshot time, time the thread was queried at
 * catalogue time, time the catalogue was queried at
-
+* number of images in thread
+* percentage of posts which contain images
